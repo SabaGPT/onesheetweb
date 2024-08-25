@@ -3,183 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网站需求模板</title>
+    <title>帮小白做网站 - 首页</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        .form-section {
-            margin-bottom: 20px;
+
+        /* 全局样式 */
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="number"],
-        input[type="email"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input[type="radio"],
-        input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        .form-section label span {
-            font-weight: normal;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .submit-button {
+
+        header {
             background-color: #4CAF50;
             color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Banner 样式 */
+        .hero {
+            background-image: url('https://example.com/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .hero a {
+            background-color: #ff9800;
             padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        .hero a:hover {
+            background-color: #e68900;
+        }
+
+        /* 服务介绍 */
+        .services {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .services .service-item {
+            display: inline-block;
+            width: 30%;
+            margin: 0 10px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .services .service-item img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .services .service-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* 案例展示预览 */
+        .portfolio {
+            background-color: #ffffff;
+            padding: 50px 0;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .portfolio .portfolio-item {
+            display: inline-block;
+            width: 30%;
+            margin: 0 10px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .portfolio .portfolio-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .portfolio .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio .portfolio-item h3 {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        /* 客户评价 */
+        .testimonials {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-item {
+            display: inline-block;
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial-item:before {
+            content: "“";
+            font-size: 3rem;
+            color: #4CAF50;
+            position: absolute;
+            top: -30px;
+            left: 20px;
+        }
+
+        .testimonial-item p {
             font-size: 1rem;
+            margin: 0;
+        }
+
+        /* 快速链接 */
+        .quick-links {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .quick-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .quick-links a:hover {
+            background-color: #388E3C;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <h1>网站需求模板</h1>
-    <form action="submit_form.php" method="post">
-        <!-- 网站类型 -->
-        <div class="form-section">
-            <label>1. 网站类型</label>
-            <input type="radio" name="site_type" value="企业官网"> 企业官网
-            <input type="radio" name="site_type" value="电子商务网站"> 电子商务网站
-            <input type="radio" name="site_type" value="博客/内容网站"> 博客/内容网站
-            <input type="radio" name="site_type" value="个人/作品集网站"> 个人/作品集网站
-            <input type="radio" name="site_type" value="其他"> 其他
-            <input type="text" name="site_type_other" placeholder="如果选择其他，请描述">
+    <!-- 头部和导航 -->
+    <header>
+        <h1>帮小白做网站</h1>
+        <p>我们专注于帮助小白客户打造完美网站</p>
+    </header>
+
+    <nav>
+        <a href="#">首页</a>
+        <a href="#services">服务</a>
+        <a href="#portfolio">案例展示</a>
+        <a href="#testimonials">客户评价</a>
+        <a href="#contact">联系我们</a>
+        <a href="requirements-form.html">提交需求</a> <!-- 添加需求表单链接 -->
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div>
+            <h1>轻松创建您的网站</h1>
+            <p>让我们帮助您，轻松实现您的网络梦想</p>
+            <a href="requirements-form.html">立即提交需求</a> <!-- 添加需求表单链接 -->
         </div>
+    </section>
 
-        <!-- 网站风格 -->
-        <div class="form-section">
-            <label>2. 网站风格</label>
-            <input type="radio" name="site_style" value="现代简约"> 现代简约
-            <input type="radio" name="site_style" value="古典优雅"> 古典优雅
-            <input type="radio" name="site_style" value="活泼多彩"> 活泼多彩
-            <input type="radio" name="site_style" value="专业商务"> 专业商务
-            <input type="radio" name="site_style" value="个性化/定制化"> 个性化/定制化
+    <!-- 服务介绍 -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>我们的服务</h2>
+            <div class="service-item">
+                <img src="https://example.com/design-icon.png" alt="网站设计">
+                <h3>网站设计</h3>
+                <p>我们为您提供现代化、响应式的网站设计服务，确保您的网站在所有设备上都能完美展示。</p>
+                <a href="requirements-form.html">了解更多并提交需求</a> <!-- 添加需求表单链接 -->
+            </div>
+            <div class="service-item">
+                <img src="https://example.com/development-icon.png" alt="网站开发">
+                <h3>网站开发</h3>
+                <p>我们使用最新的技术，为您构建高效、安全的网站，满足您的业务需求。</p>
+                <a href="requirements-form.html">了解更多并提交需求</a> <!-- 添加需求表单链接 -->
+            </div>
+            <div class="service-item">
+                <img src="https://example.com/seo-icon.png" alt="SEO优化">
+                <h3>SEO优化</h3>
+                <p>通过SEO优化，我们帮助您的网站在搜索引擎中获得更高的排名，吸引更多访问者。</p>
+                <a href="requirements-form.html">了解更多并提交需求</a> <!-- 添加需求表单链接 -->
+            </div>
         </div>
+    </section>
 
-        <!-- 主要颜色 -->
-        <div class="form-section">
-            <label>3. 主要颜色</label>
-            <label>主色: <input type="text" name="primary_color" placeholder="#4CAF50"></label>
-            <label>辅色: <input type="text" name="secondary_color" placeholder="#FFFFFF"></label>
+    <!-- 案例展示 -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>成功案例</h2>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio1.jpg" alt="案例1">
+                <h3>项目案例 1</h3>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio2.jpg" alt="案例2">
+                <h3>项目案例 2</h3>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio3.jpg" alt="案例3">
+                <h3>项目案例 3</h3>
+            </div>
         </div>
+    </section>
 
-        <!-- 导航结构 -->
-        <div class="form-section">
-            <label>4. 导航结构</label>
-            <input type="checkbox" name="navigation[]" value="首页"> 首页
-            <input type="checkbox" name="navigation[]" value="关于我们"> 关于我们
-            <input type="checkbox" name="navigation[]" value="产品/服务"> 产品/服务
-            <input type="checkbox" name="navigation[]" value="博客"> 博客
-            <input type="checkbox" name="navigation[]" value="联系我们"> 联系我们
-            <input type="checkbox" name="navigation[]" value="其他"> 其他
-            <input type="text" name="navigation_other" placeholder="如果选择其他，请描述">
-        </div>
-
-        <!-- 目标用户 -->
-        <div class="form-section">
-            <label>5. 目标用户</label>
-            <input type="radio" name="target_audience" value="青少年"> 青少年
-            <input type="radio" name="target_audience" value="成人"> 成人
-            <input type="radio" name="target_audience" value="企业客户"> 企业客户
-            <input type="radio" name="target_audience" value="专业人士"> 专业人士
-            <input type="radio" name="target_audience" value="其他"> 其他
-            <input type="text" name="target_audience_other" placeholder="如果选择其他，请描述">
-        </div>
-
-        <!-- 网站功能 -->
-        <div class="form-section">
-            <label>6. 网站功能</label>
-            <input type="checkbox" name="site_features[]" value="用户注册/登录"> 用户注册/登录
-            <input type="checkbox" name="site_features[]" value="在线支付"> 在线支付
-            <input type="checkbox" name="site_features[]" value="联系表单"> 联系表单
-            <input type="checkbox" name="site_features[]" value="社交媒体集成"> 社交媒体集成
-            <input type="checkbox" name="site_features[]" value="图片/视频库"> 图片/视频库
-            <input type="checkbox" name="site_features[]" value="多语言支持"> 多语言支持
-            <input type="checkbox" name="site_features[]" value="博客系统"> 博客系统
-            <input type="checkbox" name="site_features[]" value="搜索功能"> 搜索功能
-            <input type="checkbox" name="site_features[]" value="其他"> 其他
-            <input type="text" name="site_features_other" placeholder="如果选择其他，请描述">
-        </div>
-
-        <!-- 内容管理系统(CMS) -->
-        <div class="form-section">
-            <label>7. 内容管理系统(CMS)</label>
-            <input type="radio" name="cms" value="WordPress"> WordPress
-            <input type="radio" name="cms" value="Drupal"> Drupal
-            <input type="radio" name="cms" value="Joomla"> Joomla
-            <input type="radio" name="cms" value="定制CMS"> 定制CMS
-            <input type="radio" name="cms" value="无需CMS"> 无需CMS
-        </div>
-
-        <!-- 响应式设计 -->
-        <div class="form-section">
-            <label>8. 响应式设计</label>
-            <input type="radio" name="responsive_design" value="是"> 是
-            <input type="radio" name="responsive_design" value="否"> 否
-        </div>
-
-        <!-- 域名与托管 -->
-        <div class="form-section">
-            <label>9. 域名与托管</label>
-            <input type="checkbox" name="domain_hosting[]" value="需要注册域名"> 需要注册域名
-            <input type="checkbox" name="domain_hosting[]" value="已有域名"> 已有域名
-            <input type="checkbox" name="domain_hosting[]" value="需要托管服务"> 需要托管服务
-            <input type="checkbox" name="domain_hosting[]" value="已有托管服务"> 已有托管服务
-        </div>
-
-        <!-- SEO需求 -->
-        <div class="form-section">
-            <label>10. SEO需求</label>
-            <input type="radio" name="seo" value="是"> 是
-            <input type="radio" name="seo" value="否"> 否
-        </div>
-
-        <!-- 预算范围 -->
-        <div class="form-section">
-            <label>11. 预算范围</label>
-            <input type="number" name="budget" placeholder="请输入预算范围 (例如：10000)">
-        </div>
-
-        <!-- 项目时间表 -->
-        <div class="form-section">
-            <label>12. 项目时间表</label>
-            <input type="text" name="timeline" placeholder="请输入预计上线时间 (例如：2024年12月)">
-        </div>
-
-        <!-- 参考网站 -->
-        <div class="form-section">
-            <label>13. 参考网站</label>
-            <input type="text" name="reference_site1" placeholder="网站1 (填写网址)">
-            <input type="text" name="reference_site2" placeholder="网站2 (填写网址)">
-            <input type="text" name="reference_site3" placeholder="网站3 (填写网址)">
-        </div>
-
-        <!-- 其他需求 -->
-        <div class="form-section">
-            <label>14. 其他需求</label>
-            <textarea name="additional_requirements" placeholder="请填写其他特殊需求"></textarea>
-        </div>
-
-        <button type="submit" class="submit-button">提交需求</button>
-    </form>
-
-</body>
-</html>
-
+    <!-- 客户评价 -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>客户评价
