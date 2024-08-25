@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站需求模板</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-section label span {
+            font-weight: normal;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>网站需求模板</h1>
+    <form action="submit_form.php" method="post">
+        <!-- 网站类型 -->
+        <div class="form-section">
+            <label>1. 网站类型</label>
+            <input type="radio" name="site_type" value="企业官网"> 企业官网
+            <input type="radio" name="site_type" value="电子商务网站"> 电子商务网站
+            <input type="radio" name="site_type" value="博客/内容网站"> 博客/内容网站
+            <input type="radio" name="site_type" value="个人/作品集网站"> 个人/作品集网站
+            <input type="radio" name="site_type" value="其他"> 其他
+            <input type="text" name="site_type_other" placeholder="如果选择其他，请描述">
+        </div>
+
+        <!-- 网站风格 -->
+        <div class="form-section">
+            <label>2. 网站风格</label>
+            <input type="radio" name="site_style" value="现代简约"> 现代简约
+            <input type="radio" name="site_style" value="古典优雅"> 古典优雅
+            <input type="radio" name="site_style" value="活泼多彩"> 活泼多彩
+            <input type="radio" name="site_style" value="专业商务"> 专业商务
+            <input type="radio" name="site_style" value="个性化/定制化"> 个性化/定制化
+        </div>
+
+        <!-- 主要颜色 -->
+        <div class="form-section">
+            <label>3. 主要颜色</label>
+            <label>主色: <input type="text" name="primary_color" placeholder="#4CAF50"></label>
+            <label>辅色: <input type="text" name="secondary_color" placeholder="#FFFFFF"></label>
+        </div>
+
+        <!-- 导航结构 -->
+        <div class="form-section">
+            <label>4. 导航结构</label>
+            <input type="checkbox" name="navigation[]" value="首页"> 首页
+            <input type="checkbox" name="navigation[]" value="关于我们"> 关于我们
+            <input type="checkbox" name="navigation[]" value="产品/服务"> 产品/服务
+            <input type="checkbox" name="navigation[]" value="博客"> 博客
+            <input type="checkbox" name="navigation[]" value="联系我们"> 联系我们
+            <input type="checkbox" name="navigation[]" value="其他"> 其他
+            <input type="text" name="navigation_other" placeholder="如果选择其他，请描述">
+        </div>
+
+        <!-- 目标用户 -->
+        <div class="form-section">
+            <label>5. 目标用户</label>
+            <input type="radio" name="target_audience" value="青少年"> 青少年
+            <input type="radio" name="target_audience" value="成人"> 成人
+            <input type="radio" name="target_audience" value="企业客户"> 企业客户
+            <input type="radio" name="target_audience" value="专业人士"> 专业人士
+            <input type="radio" name="target_audience" value="其他"> 其他
+            <input type="text" name="target_audience_other" placeholder="如果选择其他，请描述">
+        </div>
+
+        <!-- 网站功能 -->
+        <div class="form-section">
+            <label>6. 网站功能</label>
+            <input type="checkbox" name="site_features[]" value="用户注册/登录"> 用户注册/登录
+            <input type="checkbox" name="site_features[]" value="在线支付"> 在线支付
+            <input type="checkbox" name="site_features[]" value="联系表单"> 联系表单
+            <input type="checkbox" name="site_features[]" value="社交媒体集成"> 社交媒体集成
+            <input type="checkbox" name="site_features[]" value="图片/视频库"> 图片/视频库
+            <input type="checkbox" name="site_features[]" value="多语言支持"> 多语言支持
+            <input type="checkbox" name="site_features[]" value="博客系统"> 博客系统
+            <input type="checkbox" name="site_features[]" value="搜索功能"> 搜索功能
+            <input type="checkbox" name="site_features[]" value="其他"> 其他
+            <input type="text" name="site_features_other" placeholder="如果选择其他，请描述">
+        </div>
+
+        <!-- 内容管理系统(CMS) -->
+        <div class="form-section">
+            <label>7. 内容管理系统(CMS)</label>
+            <input type="radio" name="cms" value="WordPress"> WordPress
+            <input type="radio" name="cms" value="Drupal"> Drupal
+            <input type="radio" name="cms" value="Joomla"> Joomla
+            <input type="radio" name="cms" value="定制CMS"> 定制CMS
+            <input type="radio" name="cms" value="无需CMS"> 无需CMS
+        </div>
+
+        <!-- 响应式设计 -->
+        <div class="form-section">
+            <label>8. 响应式设计</label>
+            <input type="radio" name="responsive_design" value="是"> 是
+            <input type="radio" name="responsive_design" value="否"> 否
+        </div>
+
+        <!-- 域名与托管 -->
+        <div class="form-section">
+            <label>9. 域名与托管</label>
+            <input type="checkbox" name="domain_hosting[]" value="需要注册域名"> 需要注册域名
+            <input type="checkbox" name="domain_hosting[]" value="已有域名"> 已有域名
+            <input type="checkbox" name="domain_hosting[]" value="需要托管服务"> 需要托管服务
+            <input type="checkbox" name="domain_hosting[]" value="已有托管服务"> 已有托管服务
+        </div>
+
+        <!-- SEO需求 -->
+        <div class="form-section">
+            <label>10. SEO需求</label>
+            <input type="radio" name="seo" value="是"> 是
+            <input type="radio" name="seo" value="否"> 否
+        </div>
+
+        <!-- 预算范围 -->
+        <div class="form-section">
+            <label>11. 预算范围</label>
+            <input type="number" name="budget" placeholder="请输入预算范围 (例如：10000)">
+        </div>
+
+        <!-- 项目时间表 -->
+        <div class="form-section">
+            <label>12. 项目时间表</label>
+            <input type="text" name="timeline" placeholder="请输入预计上线时间 (例如：2024年12月)">
+        </div>
+
+        <!-- 参考网站 -->
+        <div class="form-section">
+            <label>13. 参考网站</label>
+            <input type="text" name="reference_site1" placeholder="网站1 (填写网址)">
+            <input type="text" name="reference_site2" placeholder="网站2 (填写网址)">
+            <input type="text" name="reference_site3" placeholder="网站3 (填写网址)">
+        </div>
+
+        <!-- 其他需求 -->
+        <div class="form-section">
+            <label>14. 其他需求</label>
+            <textarea name="additional_requirements" placeholder="请填写其他特殊需求"></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">提交需求</button>
+    </form>
+
+</body>
+</html>
+
