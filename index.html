@@ -10,56 +10,73 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-        }
-
-        /* 全局样式 */
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr;
+            height: 100vh;
         }
 
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 0;
+            padding: 20px;
             text-align: center;
+            grid-row: 1 / 2;
         }
 
         nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
             text-align: center;
-            margin: 20px 0;
+            grid-row: 2 / 3;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         nav a {
-            color: #333;
+            color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem;
+            padding: 10px;
+            background-color: #4CAF50;
+            border-radius: 5px;
         }
 
-        /* Hero Banner 样式 */
+        nav a:hover {
+            background-color: #388E3C;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
+            grid-row: 3 / 4;
+        }
+
         .hero {
+            grid-column: 1 / -1;
             background-image: url('https://example.com/hero-image.jpg');
             background-size: cover;
             background-position: center;
             color: white;
-            height: 500px;
+            padding: 40px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin: 0;
+            font-size: 2.5rem;
+            margin: 0 0 20px;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin: 20px 0;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .hero a {
@@ -75,143 +92,41 @@
             background-color: #e68900;
         }
 
-        /* 服务介绍 */
-        .services {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        .services h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .services .service-item {
-            display: inline-block;
-            width: 30%;
-            margin: 0 10px;
-            padding: 20px;
+        .service-item, .portfolio-item, .testimonial-item {
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
         }
 
-        .services .service-item img {
+        .service-item img, .portfolio-item img {
             max-width: 100px;
             margin-bottom: 15px;
         }
 
-        .services .service-item h3 {
+        .service-item h3, .portfolio-item h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
-        /* 案例展示预览 */
-        .portfolio {
-            background-color: #ffffff;
-            padding: 50px 0;
-        }
-
-        .portfolio h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .portfolio .portfolio-item {
-            display: inline-block;
-            width: 30%;
-            margin: 0 10px;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .portfolio .portfolio-item img {
+        .portfolio-item img {
             width: 100%;
-            display: block;
-            transition: transform 0.3s;
-        }
-
-        .portfolio .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .portfolio .portfolio-item h3 {
-            text-align: center;
-            margin: 10px 0;
-            font-size: 1.2rem;
-        }
-
-        /* 客户评价 */
-        .testimonials {
-            padding: 50px 0;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-item {
-            display: inline-block;
-            width: 45%;
-            margin: 10px;
-            padding: 20px;
-            background-color: white;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .testimonial-item:before {
-            content: "“";
-            font-size: 3rem;
-            color: #4CAF50;
-            position: absolute;
-            top: -30px;
-            left: 20px;
-        }
-
-        .testimonial-item p {
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        /* 快速链接 */
-        .quick-links {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .quick-links a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .quick-links a:hover {
-            background-color: #388E3C;
         }
 
         footer {
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
+            padding: 20px;
+            grid-row: 4 / 5;
         }
+
     </style>
 </head>
 <body>
 
-    <!-- 头部和导航 -->
     <header>
         <h1>帮小白做网站</h1>
         <p>我们专注于帮助小白客户打造完美网站</p>
@@ -223,63 +138,69 @@
         <a href="#portfolio">案例展示</a>
         <a href="#testimonials">客户评价</a>
         <a href="#contact">联系我们</a>
-        <a href="requirements-form.html">提交需求</a> <!-- 添加需求表单链接 -->
+        <a href="requirements-form.html">提交需求</a>
     </nav>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <div>
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero">
             <h1>轻松创建您的网站</h1>
             <p>让我们帮助您，轻松实现您的网络梦想</p>
-            <a href="/onesheetweb/requirements-form.html">立即提交需求</a> <!-- 添加需求表单链接 -->
-        </div>
-    </section>
+            <a href="requirements-form.html">立即提交需求</a>
+        </section>
 
-    <!-- 服务介绍 -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>我们的服务</h2>
-            <div class="service-item">
-                <img src="https://example.com/design-icon.png" alt="网站设计">
-                <h3>网站设计</h3>
-                <p>我们为您提供现代化、响应式的网站设计服务，确保您的网站在所有设备上都能完美展示。</p>
-                <a href="requirements-form.html">了解更多并提交需求</a> <!-- 添加需求表单链接 -->
-            </div>
-            <div class="service-item">
-                <img src="https://example.com/development-icon.png" alt="网站开发">
-                <h3>网站开发</h3>
-                <p>我们使用最新的技术，为您构建高效、安全的网站，满足您的业务需求。</p>
-                <a href="requirements-form.html">了解更多并提交需求</a> <!-- 添加需求表单链接 -->
-            </div>
-            <div class="service-item">
-                <img src="https://example.com/seo-icon.png" alt="SEO优化">
-                <h3>SEO优化</h3>
-                <p>通过SEO优化，我们帮助您的网站在搜索引擎中获得更高的排名，吸引更多访问者。</p>
-                <a href="requirements-form.html">了解更多并提交需求</a> <!-- 添加需求表单链接 -->
-            </div>
-        </div>
-    </section>
+        <!-- 服务介绍 -->
+        <section id="services" class="service-item">
+            <img src="https://example.com/design-icon.png" alt="网站设计">
+            <h3>网站设计</h3>
+            <p>我们为您提供现代化、响应式的网站设计服务，确保您的网站在所有设备上都能完美展示。</p>
+            <a href="requirements-form.html">了解更多并提交需求</a>
+        </section>
 
-    <!-- 案例展示 -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2>成功案例</h2>
-            <div class="portfolio-item">
-                <img src="https://example.com/portfolio1.jpg" alt="案例1">
-                <h3>项目案例 1</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://example.com/portfolio2.jpg" alt="案例2">
-                <h3>项目案例 2</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://example.com/portfolio3.jpg" alt="案例3">
-                <h3>项目案例 3</h3>
-            </div>
-        </div>
-    </section>
+        <section class="service-item">
+            <img src="https://example.com/development-icon.png" alt="网站开发">
+            <h3>网站开发</h3>
+            <p>我们使用最新的技术，为您构建高效、安全的网站，满足您的业务需求。</p>
+            <a href="requirements-form.html">了解更多并提交需求</a>
+        </section>
 
-    <!-- 客户评价 -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>客户评价
+        <section class="service-item">
+            <img src="https://example.com/seo-icon.png" alt="SEO优化">
+            <h3>SEO优化</h3>
+            <p>通过SEO优化，我们帮助您的网站在搜索引擎中获得更高的排名，吸引更多访问者。</p>
+            <a href="requirements-form.html">了解更多并提交需求</a>
+        </section>
+
+        <!-- 案例展示 -->
+        <section id="portfolio" class="portfolio-item">
+            <img src="https://example.com/portfolio1.jpg" alt="案例1">
+            <h3>项目案例 1</h3>
+        </section>
+
+        <section class="portfolio-item">
+            <img src="https://example.com/portfolio2.jpg" alt="案例2">
+            <h3>项目案例 2</h3>
+        </section>
+
+        <section class="portfolio-item">
+            <img src="https://example.com/portfolio3.jpg" alt="案例3">
+            <h3>项目案例 3</h3>
+        </section>
+
+        <!-- 客户评价 -->
+        <section id="testimonials" class="testimonial-item">
+            <p>“感谢团队帮我快速上线了我的个人博客，设计和功能都非常棒！”</p>
+        </section>
+
+        <section class="testimonial-item">
+            <p>“团队很专业，开发的企业官网不仅美观，而且功能非常齐全。”</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 帮小白做网站. 版权所有.</p>
+    </footer>
+
+</body>
+</html>
